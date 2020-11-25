@@ -7,18 +7,18 @@ function preload(){
 }
 
 function setup(){
-    createCanvas(700,500);
+    createCanvas(displayWidth-10, displayHeight-165);
    runner=createSprite(100,350,10,10);
   rockGroup=createGroup();
     runner.addImage(runnerImg);
-    ground = createSprite(350,450,700,10);
+    ground = createSprite(350,450,displayWidth-10,10);
     textSize(18);
-    textFont("Georgia");
     textStyle(BOLD);
+   // fill(0);
 
 }
 function draw(){
-    background(255);
+    background("field.jpg");
     runner.scale = 0.2;
     runner.collide(ground)
 
@@ -36,10 +36,10 @@ function draw(){
 
 function Rock() {
     if (World.frameCount % 80 === 0) {
-      var rock = createSprite(710,425,40,10);
+      var rock = createSprite(835,425,40,10);
       rock.addImage(rockImg)
       rock.scale = 0.2;
-     rock.debug= true;
+    // rock.debug= true;
       rock.velocityX = -6;
       rock.lifetime = 250;
       rockGroup.add(rock);
